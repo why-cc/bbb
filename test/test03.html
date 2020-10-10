@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/css02.css">
+    <script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.js"></script>
+</head>
+
+<body>
+
+    <div class="main_wrap">
+        <div class="main">
+            <p class="dashabi" title="走开">下去吧</p>
+
+            <a class="hahaha" href="javascript:void(0)">来人</a>
+        </div>
+
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            $(".main").click(function () {
+                $(".dashabi").toggle();
+                $("a.hahaha").toggle();
+            })
+
+        })
+
+    </script>
+
+</body>
+
+</html>

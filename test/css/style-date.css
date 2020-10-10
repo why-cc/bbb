@@ -1,0 +1,327 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body .wrap {
+  background: #fff;
+  position: relative;
+  height: 100vh;
+}
+
+body .wrap .date_wrap {
+  width: 360px;
+  overflow: hidden;
+  color: #fefefe;
+  font-weight: 100;
+  position: absolute;
+  z-index: 8;
+  bottom: 0;
+  right: 380px;
+}
+
+body .wrap .date_wrap .date_wrap_bg {
+  width: 380px;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.7);
+  background: #444;
+}
+
+body .wrap .date_wrap .date_head {
+  padding: 14px 20px;
+  line-height: 1.4;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body .wrap .date_wrap .date_head .display_time {
+  font-size: 40px;
+  user-select: none;
+}
+
+body .wrap .date_wrap .date_head .display_date {
+  font-size: 15px;
+  color: #35f0fd;
+  user-select: none;
+}
+
+body .wrap .date_wrap .date_body {
+  padding: 14px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body .wrap .date_wrap .date_body .date_body_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 13px;
+}
+
+body .wrap .date_wrap .date_body .date_body_head .yearMonth {
+  font-size: 14px;
+  user-select: none;
+}
+
+body .wrap .date_wrap .date_body .date_body_head .btn_wrap button {
+  position: relative;
+  background-color: transparent;
+  border: 0;
+  width: 24px;
+  height: 24px;
+  margin-left: 24px;
+  cursor: pointer;
+}
+
+body .wrap .date_wrap .date_body .date_body_head .btn_wrap button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  transform-origin: 0px 0px;
+  border-top: 1px solid #fefefe;
+  border-left: 1px solid #fefefe;
+  left: 50%;
+}
+
+body .wrap .date_wrap .date_body .date_body_head .btn_wrap button.btn_prev::after {
+  transform: rotate(45deg) translate(-50%, -50%);
+  top: 66%;
+}
+
+body .wrap .date_wrap .date_body .date_body_head .btn_wrap button.btn_next::after {
+  transform: rotate(-135deg) translate(-50%, -50%);
+  top: 33%;
+}
+
+body .wrap .date_wrap .date_body .date_body_table {
+  position: relative;
+  overflow: hidden;
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  position: relative;
+  z-index: 10;
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li {
+  flex: 1;
+  text-align: center;
+  border: 2px solid #444;
+  padding: 2px;
+  margin: -1px;
+  position: relative;
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li .li_wrap {
+  background: #444;
+  padding: 1px 0;
+  border: 2px solid transparent;
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li .li_wrap p {
+  line-height: 1.2;
+  user-select: none;
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li .li_wrap .gregorian_cal {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li .li_wrap .lunar_cal {
+  font-size: 12px;
+  transform: scale(0.9);
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li .li_wrap .lunar_cal.holiday {
+  color: #b6eef5;
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li.off {
+  color: #918f8f;
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li.today {
+  background: #02a1b6;
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li.today .li_wrap {
+  background: #02a1b6 !important;
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li:hover::after {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li:hover .li_wrap {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li.on::after {
+  border-color: #02a1b6;
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li.on.today:hover::after {
+  border-color: #6dc5d1;
+}
+
+body .wrap .date_wrap .date_body .date_body_table ul li.on.today .li_wrap {
+  border-color: #1d1d1d;
+}
+
+body .wrap .date_wrap .date_body .date_body_title ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  position: relative;
+  z-index: 10;
+}
+
+body .wrap .date_wrap .date_body .date_body_title ul li {
+  flex: 1;
+  text-align: center;
+  border: 2px solid #444;
+  padding: 2px;
+  margin: -1px;
+  font-size: 12px;
+  font-weight: 200;
+  padding: 10px 0;
+  user-select: none;
+}
+
+body .wrap .date_wrap .date_foot {
+  padding: 14px 20px;
+}
+
+body .wrap .date_wrap .date_foot .date_foot_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body .wrap .date_wrap .date_foot .date_foot_head .date_today {
+  font-size: 16px;
+  user-select: none;
+}
+
+body .wrap .date_wrap .date_foot .date_foot_head .btn_set {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+body .wrap .date_wrap .date_foot .date_foot_head .btn_set::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #fefefe;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+body .wrap .date_wrap .date_foot .date_foot_head .btn_set::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: #fefefe;
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+body .wrap .date_wrap .date_foot .date_foot_body {
+  padding: 10px 0;
+}
+
+body .wrap .date_wrap .date_foot .date_foot_body p {
+  font-size: 14px;
+}
+
+body .wrap .date_wrap .date_foot .date_foot_foot .hide_schedule {
+  font-size: 15px;
+  color: #35f0fd;
+  display: block;
+}
+
+body .wrap .date_wrap .date_foot .date_foot_foot .date_body_head {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+body .wrap .date_wrap .date_foot .date_foot_foot .date_body_head .yearMonth {
+  font-size: 14px;
+  user-select: none;
+}
+
+body .wrap .date_wrap .date_foot .date_foot_foot .date_body_head .btn_wrap button {
+  position: relative;
+  background-color: transparent;
+  border: 0;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+body .wrap .date_wrap .date_foot .date_foot_foot .date_body_head .btn_wrap button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  transform-origin: 0px 0px;
+  border-top: 1px solid #35f0fd;
+  border-left: 1px solid #35f0fd;
+  left: 50%;
+}
+
+body .wrap .date_wrap .date_foot .date_foot_foot .date_body_head .btn_wrap button.btn_prev::after {
+  transform: rotate(45deg) translate(-50%, -50%);
+  top: 66%;
+}
+
+body .wrap .date_wrap .date_foot .date_foot_foot .date_body_head .btn_wrap button.btn_next::after {
+  transform: rotate(-135deg) translate(-50%, -50%);
+  top: 50%;
+}
+
+body .demo {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  background: rgba(185, 185, 185, 0.8);
+  z-index: 9;
+  filter: blur(20px);
+  border-radius: 50%;
+}

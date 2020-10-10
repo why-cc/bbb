@@ -1,0 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main_wrap{
+  border: 1px solid blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.main{
+  border: 1px solid orangered;
+  max-width: 400px;
+  max-height: 300px;
+  text-align: center;
+}
+.dashabi{
+  cursor: pointer;
+  width: 200px;
+  height: 40px;
+  
+  display: none;
+}
+.hahaha{
+  
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>表单全选+取消全选</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 500px;
+            position: relative;
+            margin: 100px auto;
+            border-collapse: collapse;
+            border: 1px solid #d7d7d7;
+        }
+
+        thead tr {
+            background-color: #222;
+            font-weight: 600;
+            color: #e9e9e9;
+        }
+
+        tbody tr:hover {
+            background: #F5F5F5;
+        }
+
+        table tr {
+            text-align: center;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <table border=1>
+        <thead>
+            <tr>
+                <td><input type="checkbox" id='cekall'></td>
+                <td>商品</td>
+                <td>价钱</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>iPhone 11</td>
+                <td>5999.0</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>荣耀20</td>
+                <td>2299.0</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>iPhone XR</td>
+                <td>4499.0</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+
+    // 1、全选和取消全选做法：让下面所有复选框的 checked属性（选中状态）跟随全选按钮即可
+    // 获取元素，获取全选按钮和下面小的复选框
+    var cekall = document.getElementById('cekall');
+    var inp = document.querySelector('tbody').getElementsByTagName('input');
+    // 注册事件
+    cekall.onclick = function () {
+        // this.checked  可以得到当前复选框的选中状态，如果是 true 就是选中，如果是 false 就是未选中
+        console.log(this.checked);
+        for (var i = 0; i < inp.length; i++) {
+            inp[i].checked = this.checked;
+        }
+    }
+    // 2、下面的复选框要全部选中，上面的全选按钮才能够全部选中，给下面的所有复选框绑定事件，每次点击，都要循环查看下面下面所有的复选框是否有没选中的，如果有没选中的复选框，那么上面的全选按钮就不选中。
+    for (var i = 0; i < inp.length; i++) {
+        inp[i].onclick = function () {
+            // 设置一个变量来控制按钮是否全部选中
+            var flag = true;
+            // 每次点击下面的复选框都要检查下面的四个小按钮是否被全部选中。
+            for (var i = 0; i < inp.length; i++) {
+                if (!inp[i].checked) {
+                    flag = false;
+                }
+            }
+            cekall.checked = flag;
+        }
+    }
+</script>
+</body>
+
+</html>
